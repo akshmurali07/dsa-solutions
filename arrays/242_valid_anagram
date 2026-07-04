@@ -1,0 +1,32 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        found = True 
+        d={}
+        m={}
+        if len(s)==len(t):
+            for i in s:
+                if i not in d:
+                    d[i]=1
+                else:
+                    d[i]+=1
+            for i in t:
+                if i not in m:
+                    m[i]=1
+                else:
+                    m[i]+=1
+            for x in d:
+                if x not in m:
+                    found = False 
+                    break
+                else:
+                    if d[x]!=m[x]:
+                        found = False 
+                        break
+        else:
+            found = False
+        return found
