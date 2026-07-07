@@ -1,0 +1,21 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if len(s)==0:
+            return True
+        st=""
+        for i in s:
+            if i.isalnum():
+                if i.islower():
+                    st+=i
+                else:
+                    i=i.lower()
+                    st+=i
+        if st[::-1]==st:
+            return True
+        else:
+            return False
+            
