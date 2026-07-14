@@ -1,0 +1,14 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        curr = ""
+        l = 0
+
+        for ch in s:
+            if ch in curr:
+                idx = curr.index(ch)
+                curr = curr[idx + 1:]
+
+            curr += ch
+            l = max(l, len(curr))
+
+        return l
