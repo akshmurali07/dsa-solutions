@@ -1,0 +1,15 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        
+        mini=100000
+        ma=0
+        for i in prices:
+            if i<mini:
+                mini=i
+            elif i-mini>ma:
+                ma=i-mini
+        return ma
