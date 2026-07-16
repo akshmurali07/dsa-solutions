@@ -1,0 +1,20 @@
+class Solution(object):
+    def characterReplacement(self, s, k):
+        ans = 0
+
+        for target in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            left = 0
+            changes = 0
+
+            for right in range(len(s)):
+                if s[right] != target:
+                    changes += 1
+
+                while changes > k:
+                    if s[left] != target:
+                        changes -= 1
+                    left += 1
+
+                ans = max(ans, right - left + 1)
+
+        return ans
