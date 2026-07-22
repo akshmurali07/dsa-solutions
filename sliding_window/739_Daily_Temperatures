@@ -1,0 +1,14 @@
+class Solution(object):
+    def dailyTemperatures(self, temperatures):
+        """
+        :type temperatures: List[int]
+        :rtype: List[int]
+        """
+        a=[0]*len(temperatures)
+        s=[]
+        for i in range(len(temperatures)):
+            while s and temperatures[i]>temperatures[s[-1]]:
+                d=s.pop()
+                a[d]=i-d
+            s.append(i)
+        return a
