@@ -1,0 +1,15 @@
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        prev=None
+        curr = head 
+        while curr:
+            nextnode=curr.next
+            curr.next=prev
+            prev=curr
+            curr=nextnode
+        return prev
+        
